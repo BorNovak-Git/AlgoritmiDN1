@@ -49,7 +49,11 @@ void countingSort(vector<unsigned char>& A, int bit) {
     }
 }
 
-
+void binaryRadixSort(vector<unsigned char>& A) {
+    for (int bit = 0; bit < 8; bit++) {
+        countingSort(A, bit);
+    }
+}
 
 int main(int argc, const char* argv[]) {
     vector<unsigned char> A;
@@ -57,6 +61,7 @@ int main(int argc, const char* argv[]) {
     if (argc < 2) return 0;
     if (!Branje_Stevil(A, argv[1])) return 0;
 
+    binaryRadixSort(A);
     Izpis_Stevil(&A[0], A.size());
 
     return 0;
